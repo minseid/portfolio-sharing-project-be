@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url:
+    username: root
+    password: 1234
+    driver-class-name:
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+
+  jpa:
+    database: mysql
+
+  mvc:
+
+  mail:
+    
+
+# ?? ??? ??
+google:
+  client:
+    clientId: your_google_client_id
+    clientSecret: your_google_client_secret
+  redirectUri: http://localhost:8080/login/google
+
+# ??? ??? ??
+kakao:
+  client:
+    clientId: your_kakao_client_id
+    clientSecret: your_kakao_client_secret
+  redirectUri: http://localhost:8080/login/kakao
+
+# ??? ??? ??
+naver:
+  client:
+    clientId: your_naver_client_id
+    clientSecret: your_naver_client_secret
+  redirectUri: http://localhost:8080/login/naver
