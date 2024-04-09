@@ -19,7 +19,7 @@ spring:
   mvc:
 
   mail:
-    
+
 
 # ?? ??? ??
 google:
@@ -41,3 +41,65 @@ naver:
     clientId: your_naver_client_id
     clientSecret: your_naver_client_secret
   redirectUri: http://localhost:8080/login/naver
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${google.client.clientId}
+            client-secret: ${google.client.clientSecret}
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope:
+              - email
+              - profile
+          kakao:
+            client-id: ${kakao.client.clientId}
+            client-secret: ${kakao.client.clientSecret}
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            authorization-grant-type: authorization_code
+            scope:
+              - profile
+              - account_email
+          naver:
+            client-id: ${naver.client.clientId}
+            client-secret: ${naver.client.clientSecret}
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            authorization-grant-type: authorization_code
+            scope:
+              - name
+              - email
+
+# ??? ???? ??? ??? ??
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-name: Google
+            client-id: ${google.client.clientId}
+            client-secret: ${google.client.clientSecret}
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope:
+              - email
+              - profile
+          kakao:
+            client-name: Kakao
+            client-id: ${kakao.client.clientId}
+            client-secret: ${kakao.client.clientSecret}
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            authorization-grant-type: authorization_code
+            scope:
+              - profile
+              - account_email
+          naver:
+            client-name: Naver
+            client-id: ${naver.client.clientId}
+            client-secret: ${naver.client.clientSecret}
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            authorization-grant-type: authorization_code
+            scope:
+              - name
+              - email
