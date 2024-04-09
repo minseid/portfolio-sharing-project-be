@@ -1,24 +1,7 @@
 server:
   port: 8080
 
-spring:
-  datasource:
-    url:
-    username: root
-    password: 1234
-    driver-class-name:
-  security:
-    oauth2:
-      client:
-        registration:
-          kakao:
 
-  jpa:
-    database: mysql
-
-  mvc:
-
-  mail:
 
 
 # ?? ??? ??
@@ -70,3 +53,15 @@ spring:
             scope:
               - name
               - email
+  datasource:
+    url:
+    username: root
+    password: 1234
+    driver-class-name:
+
+  jpa:
+    database: mysql
+
+  mvc:
+
+  mail:
