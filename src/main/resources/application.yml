@@ -1,21 +1,18 @@
 server:
   port: 8080
 
-# ?? ??? ??
 google:
   client:
     clientId: your_google_client_id
     clientSecret: your_google_client_secret
   redirectUri: http://localhost:8080/login/google
 
-# ??? ??? ??
 kakao:
   client:
     clientId: your_kakao_client_id
     clientSecret: your_kakao_client_secret
   redirectUri: http://localhost:8080/login/kakao
 
-# ??? ??? ??
 naver:
   client:
     clientId: your_naver_client_id
@@ -51,14 +48,29 @@ spring:
               - name
               - email
   datasource:
-    url:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/side?serverTimezone=UTC
     username: root
     password: 1234
-    driver-class-name:
 
-  jpa:
-    database: mysql
-
-  mvc:
+    jpa:
+      database: mysql
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          format_sql: true
+          show_sql : true
 
   mail:
+    host: smtp.example.com
+    port: 587
+    username: your_email@example.com
+    password: your_email_password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
