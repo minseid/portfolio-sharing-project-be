@@ -3,7 +3,11 @@ package com.example.side.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
 
 @Data // Lombok 어노테이션: getter, setter, toString, equals, hashCode 메서드를 자동 생성합니다.
 @Entity // 데이터베이스 테이블과 매핑되는 엔티티 클래스임을 나타냅니다.
@@ -18,15 +22,21 @@ public class User {
 
     @Id // 엔티티의 주키(primary key)를 나타냅니다.
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 자동 생성되는 값의 전략을 지정합니다. (예: auto_increment)
-    private int id;
+    private Long id;
     private String name;
     private String profile;
     private String Nickname;
     private String description;
+    private String State;
 
     private String Kakao;
     private String Google;
     private String Naver;
+
+    @CreatedDate
+    private LocalDateTime Created;
+    @LastModifiedDate
+    private LocalDateTime Updated;
 
 
 }

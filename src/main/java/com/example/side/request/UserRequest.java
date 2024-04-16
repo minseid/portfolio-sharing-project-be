@@ -1,17 +1,19 @@
-package com.example.side.response;
+package com.example.side.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDateTime;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserResponse {
+public class UserRequest {
     private Long id;
     private String name;
     private String profile;
@@ -23,6 +25,8 @@ public class UserResponse {
     private String Google;
     private String Naver;
 
+    @CreatedDate
     private LocalDateTime Created;
+    @LastModifiedDate
     private LocalDateTime Updated;
 }
