@@ -1,9 +1,7 @@
 package com.example.side.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 @Entity
 @jakarta.persistence.Table(name = "user_post_file")
 @lombok.Getter
@@ -17,4 +15,8 @@ public class UserPostFile {
     private String fileType;
     private Long fileSize;
     private String fileOriginName;
+
+    @ManyToOne
+    @JoinColumn(name = "user_post_id")
+    private UserPost userPost;
 }

@@ -3,11 +3,10 @@ package com.example.side.model.entity;
 import jakarta.persistence.*;
 
 @Entity
-@jakarta.persistence.Table(name = "user_scrap")
 @lombok.Getter
 @lombok.Setter
-
-public class UserScrap {
+@jakarta.persistence.Table(name = "post_like")
+public class PostLike {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

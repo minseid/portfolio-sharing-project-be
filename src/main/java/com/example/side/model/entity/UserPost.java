@@ -1,11 +1,10 @@
 package com.example.side.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Entity
 @jakarta.persistence.Table(name = "user_post")
 @lombok.Getter
@@ -22,4 +21,18 @@ public class UserPost {
     private String category;
     private Long likeCount;
     private Long viewCount;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "community_id")
+    private Community community;
+
+    @OneToMany(mappedBy = "userPost", fetch = FetchType.LAZY)
+    private List<UserPostComments> userPostComments;
+
+    @OneToMany(mappedBy = "userPost", fetch = FetchType.LAZY)
+    private List<UserPostFile> userPostFiles;
 }

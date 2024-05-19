@@ -8,6 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -38,5 +39,22 @@ public class User {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Community> communities;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Notification> notifications;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Job> jobs;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<UserPost> userPosts;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<UserScrap> userScraps;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<UserPostComments> userPostComments;
 
 }

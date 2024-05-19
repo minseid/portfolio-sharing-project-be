@@ -1,9 +1,6 @@
 package com.example.side.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 @Entity
@@ -18,4 +15,12 @@ public class UserPostComments {
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "user_post_id")
+    private UserPost userPost;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
