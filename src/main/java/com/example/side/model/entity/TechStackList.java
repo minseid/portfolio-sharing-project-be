@@ -14,6 +14,7 @@ public class TechStackList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
     @OneToMany(mappedBy = "techStackList", fetch = FetchType.LAZY)
     private List<TechStack> techStacks;
 

@@ -13,6 +13,7 @@ public class JobList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
     @OneToMany(mappedBy = "jobList" , fetch = FetchType.LAZY)
     private List<Job> jobs;
 }

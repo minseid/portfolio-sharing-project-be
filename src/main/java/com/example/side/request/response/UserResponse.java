@@ -1,4 +1,4 @@
-package com.example.side.response;
+package com.example.side.request.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
